@@ -3,4 +3,8 @@ class LightDisplay < ActiveRecord::Base
   # enable nested attributes for photos through album class
   accepts_nested_attributes_for :display_images, allow_destroy: true
   
+  def top_image
+    self.display_images.last
+  end
+  
 end

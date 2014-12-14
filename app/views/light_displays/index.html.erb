@@ -12,6 +12,11 @@
   <tbody>
     <% @light_displays.each do |light_display| %>
       <tr>
+				<% if light_display.top_image %>
+					<td><%= image_tag light_display.top_image.photo.url(:thumb) %>
+				<% else %>
+					<td><i class="fa fa-file-image-o fa-3x"></i></td>
+				<% end %>
         <td><%= light_display.name %></td>
         <td><%= light_display.description %></td>
         <td><%= link_to 'Show', light_display %></td>
