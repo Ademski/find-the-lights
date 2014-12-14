@@ -16,6 +16,7 @@ gem "font-awesome-rails"
 gem 'aws-sdk'
 gem "paperclip", "~> 4.2"
 group :development do
+  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'quiet_assets'
@@ -23,7 +24,6 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
-  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
