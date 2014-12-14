@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'omniauth-facebook'
 gem "font-awesome-rails"
+gem 'aws-sdk'
 gem "paperclip", "~> 4.2"
 group :development do
   gem 'better_errors'
@@ -32,4 +33,10 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+end  
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'thin'
 end
+
