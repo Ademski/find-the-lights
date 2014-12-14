@@ -15,8 +15,8 @@ gem 'omniauth-facebook'
 gem "font-awesome-rails"
 gem 'aws-sdk'
 gem "paperclip", "~> 4.2"
+gem 'pg'
 group :development do
-  gem 'pg'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'quiet_assets'
@@ -35,7 +35,6 @@ group :test do
   gem 'selenium-webdriver'
 end  
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
   gem 'thin'
 end
