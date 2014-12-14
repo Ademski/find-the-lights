@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.4'
 gem 'rails'
-gem 'sqlite3'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -24,6 +23,7 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
+  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
