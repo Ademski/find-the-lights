@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @light_display.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @light_display.description %>
+</p>
+
+<% @light_display.display_images.each do |display_image| %>
+	<%= image_tag display_image.photo.url(:medium) %>
+<% end %>
+
+<%= link_to 'Edit', edit_light_display_path(@light_display) %> |
+<%= link_to 'Back', light_displays_path %>

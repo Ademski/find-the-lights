@@ -1,0 +1,27 @@
+<h1>Listing light_displays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @light_displays.each do |light_display| %>
+      <tr>
+        <td><%= light_display.name %></td>
+        <td><%= light_display.description %></td>
+        <td><%= link_to 'Show', light_display %></td>
+        <td><%= link_to 'Edit', edit_light_display_path(light_display) %></td>
+        <td><%= link_to 'Destroy', light_display, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Light display', new_light_display_path %>

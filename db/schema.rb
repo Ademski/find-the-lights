@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209124014) do
+ActiveRecord::Schema.define(version: 20141214025013) do
+
+  create_table "display_images", force: true do |t|
+    t.string   "caption"
+    t.integer  "light_display_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "display_images", ["light_display_id"], name: "index_display_images_on_light_display_id"
+
+  create_table "light_displays", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

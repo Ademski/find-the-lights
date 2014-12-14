@@ -1,0 +1,33 @@
+<%= form_for @light_display, :html => { multipart: true } do |f| %>
+  <% if @light_display.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@light_display.errors.count, "error") %> prohibited this light_display from being saved:</h2>
+
+      <ul>
+      <% @light_display.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+	
+	<div>
+		<%= f.label :pictures %><br>
+		<div>
+			<%= file_field_tag "images[]", type: :file, multiple: true %>
+		</div>
+	</div>
+	
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
