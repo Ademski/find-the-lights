@@ -200,7 +200,7 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     spring (1.2.0)
-    spring-commands-rspec (1.0.3)
+    spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     sprockets (2.12.3)
       hike (~> 1.2)
