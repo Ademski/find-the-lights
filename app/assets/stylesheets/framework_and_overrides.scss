@@ -10,6 +10,12 @@ img {
   @extend .img-responsive;
   margin: 0 auto;
   }
+	
+.navbar-icon {
+	@extend .navbar-brand;
+	padding: 5.5px 15px;
+	}
+	
 
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
