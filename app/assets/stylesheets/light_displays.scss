@@ -1,3 +1,17 @@
 // Place all the styles related to the LightDisplays controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#displays {
+  margin: 0 auto;
+  width: 100%;
+  .display {
+	  margin: 10px;
+	  width: 325px;
+	  text-align: center;
+	  img {
+	  	max-width: 100%;
+	  	height: auto;
+	  }
+	}
+}

@@ -15,6 +15,7 @@ gem 'omniauth-facebook'
 gem "font-awesome-rails"
 gem 'aws-sdk'
 gem "paperclip", "~> 4.2"
+gem 'masonry-rails', '~> 0.2.4'
 gem 'pg'
 group :development do
   gem 'better_errors'

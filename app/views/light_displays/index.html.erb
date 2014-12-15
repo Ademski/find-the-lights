@@ -1,32 +1,21 @@
-<h1>Listing light_displays</h1>
+<div class="jumbotron">
+  <h1>Happy Holidays!</h1>
+  <p>Dedicated to spreading the best in holiday cheer.  Find some of the best displays in your area or anywhere, and submit favorites as you find them.</p>
+  <p><%= link_to 'Submit new display', new_light_display_path, :class => "btn btn-primary btn-lg" %></p>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="displays" class="transitions-enabled">
     <% @light_displays.each do |light_display| %>
-      <tr>
-				<% if light_display.top_image %>
-					<td><%= image_tag light_display.top_image.photo.url(:thumb) %>
-				<% else %>
-					<td><i class="fa fa-file-image-o fa-3x"></i></td>
-				<% end %>
-        <td><%= light_display.name %></td>
-        <td><%= light_display.description %></td>
-        <td><%= link_to 'Show', light_display %></td>
-        <td><%= link_to 'Edit', edit_light_display_path(light_display) %></td>
-        <td><%= link_to 'Destroy', light_display, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+				<div class="display panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><%= link_to light_display.name, light_display %></h3>
+				  </div>
+						<% if light_display.top_image %>
+							<%= image_tag light_display.top_image.photo.url %>
+						<% else %>
+							<i class="fa fa-file-image-o fa-5x"></i>
+						<% end %>
+						<div class="panel-footer"><%= light_display.description %></div>			
+				</div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Light display', new_light_display_path %>
+</div>

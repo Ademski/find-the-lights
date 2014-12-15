@@ -15,16 +15,11 @@ img {
 	@extend .navbar-brand;
 	padding: 5.5px 15px;
 	}
-	
-
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  @extend .text-center;
-  }
+
 .form {
   @extend .col-md-6;
   }
