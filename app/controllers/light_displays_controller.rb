@@ -1,5 +1,7 @@
 class LightDisplaysController < ApplicationController
   before_action :set_light_display, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :store_last_url, only: [:new, :edit]
 
   respond_to :html
 
@@ -22,12 +24,14 @@ class LightDisplaysController < ApplicationController
 
   def create
     @light_display = LightDisplay.new(light_display_params)
+    @light_display.user = current_user
+    
     
     respond_to do |format|
       if @light_display.save
         if params[:images]
           params[:images].each { |image| 
-            @light_display.display_images.create(photo: image)
+            @light_display.display_images.create(photo: image, user: current_user)
           }
         end
         
@@ -57,5 +61,9 @@ class LightDisplaysController < ApplicationController
 
     def light_display_params
       params.require(:light_display).permit(:name, :description)
+    end
+    
+    def store_last_url
+      session[:return_to] ||= request.referer
     end
 end

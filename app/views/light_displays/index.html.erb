@@ -15,7 +15,10 @@
 						<% else %>
 							<i class="fa fa-file-image-o fa-5x"></i>
 						<% end %>
-						<div class="panel-footer"><%= light_display.description %></div>			
+						<div class="panel-footer">
+							<p><%= light_display.description %></p>
+							<p>Submitted by: <%= light_display.formatted_user %></p>
+						</div>			
 				</div>
     <% end %>
 </div>

@@ -11,23 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control'  %>
   </div>
-	
-	<div>
-		<%= f.label :pictures %><br>
-		<div>
-			<%= file_field_tag "images[]", type: :file, multiple: true %>
-		</div>
+
+	<div class="form-group">
+		<%= f.label :picture %>
+		<%= file_field_tag "images[]", type: :file, multiple: false, class: 'form-control'  %>
 	</div>
-	
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= link_to "Cancel", session.delete(:return_to), :class => "btn btn-lg btn-default col-sm-5" %>
+  <button class="btn btn-lg btn-primary col-sm-5 col-sm-offset-2" type="submit">Submit</button>
 <% end %>
+
