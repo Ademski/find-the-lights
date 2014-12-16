@@ -16,7 +16,7 @@
 			</div>
 			<div class="panel-footer">
 				<p>Submitted by: <%= @light_display.formatted_user %></p>
-				<% if @light_display.user == current_user %>
+				<% if current_user && @light_display.user == current_user %>
 					<%= link_to 'Edit', edit_light_display_path(@light_display) %> |
 					<%= link_to 'Delete', light_display_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
@@ -24,11 +24,4 @@
 		</div>
 	</div>
 </div>
-
-
-
-<% @light_display.display_images.each do |display_image| %>
-	<%= image_tag display_image.photo.url(:medium) %>
-<% end %>
-
 
