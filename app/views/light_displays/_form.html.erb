@@ -4,7 +4,7 @@
       <h2><%= pluralize(@light_display.errors.count, "error") %> prohibited this light_display from being saved:</h2>
 
       <ul>
-      <% @light_display.errors.full_messages.each do |message| %>
+      <% @light_display.errors.each do |field, message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,7 +13,7 @@
   
   <div class="form-group">
     <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control' %>
+    <%= f.text_field :address, placeholder: current_location_address, class: 'form-control' %>
   </div>
 
   <div class="form-group">

@@ -5,3 +5,17 @@
 		<%= render 'form' %>
 	</div>
 </div>
+
+<% content_for :javascript do %>
+	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<%= javascript_tag do %>
+    $(function() {
+      if (_.isEmpty($('#light_display_address').attr('placeholder'))) {
+        var currentLocation = new FindTheLights.CurrentLocation();
+        currentLocation.getLocation(function(location) {
+          $('#light_display_address').attr('value', location);
+        })
+      }
+    });
+  <% end %>
+<% end %>

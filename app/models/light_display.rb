@@ -5,7 +5,8 @@ class LightDisplay < ActiveRecord::Base
   geocoded_by :address
   before_validation :geocode
   
-  validates :latitude, :longitude, :display_images, presence: true
+  validates :latitude, :longitude, :presence => { :message => "Address is not valid" }
+  validates :display_images, :presence => { :message => "Please attach an image" }
 
   # enable nested attributes for photos through album class
   accepts_nested_attributes_for :display_images, allow_destroy: true

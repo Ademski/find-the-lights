@@ -10,7 +10,7 @@
 			<fieldset>
 			<div class-"form-group">
 				<div class="col-sm-10">
-				  <%= form.text_field :value, placeholder: @current_location, :class => "form-control" %>
+				  <%= form.text_field :value, placeholder: current_location_address, :class => "form-control" %>
 				</div>
 				  <%= form.submit 'Search', :class => "btn btn-small btn-success pull-right col-sm-2" %>
 			</div>
@@ -30,8 +30,8 @@
 							<i class="fa fa-file-image-o fa-5x"></i>
 						<% end %>
 						<div class="panel-footer">
+              <p><%= light_display.address %></p>
 							<p><%= light_display.description %></p>
-							<p>Submitted by: <%= light_display.formatted_user %></p>
 						</div>			
 				</div>
     <% end %>
@@ -41,10 +41,10 @@
 	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<%= javascript_tag do %>
     $(function() {
-      if (_.isEmpty($('#search_value').attr('placeholder'))) {
+      if (_.isEmpty($('#search_value').attr('value'))) {
         var currentLocation = new FindTheLights.CurrentLocation();
         currentLocation.getLocation(function(location) {
-          $('#search_value').attr('placeholder', location);
+          $('#search_value').attr('value', location);
         })
       }
     });
