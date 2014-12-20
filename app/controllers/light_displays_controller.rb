@@ -73,7 +73,7 @@ class LightDisplaysController < ApplicationController
     end
     
     def current_location
-      if !(params[:search].empty?)
+      if !(params[:search]=="")
         params[:search] && params[:search][:value]
       elsif geocode_request.new(request).current_location
         geocode_request.new(request).current_location
