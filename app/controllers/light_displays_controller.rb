@@ -4,8 +4,13 @@ class LightDisplaysController < ApplicationController
   before_action :store_last_url, only: [:new, :edit]
 
   respond_to :html
+  
+  class_attribute :geocode_request 
+  self.geocode_request = GeocodeRequest
 
   def index
+    @current_location = current_location
+    logger.info "current location: #{@current_location.to_s}\n"
     @light_displays = LightDisplay.all
     respond_with(@light_displays)
   end
@@ -66,4 +71,19 @@ class LightDisplaysController < ApplicationController
     def store_last_url
       session[:return_to] ||= request.referer
     end
+    
+    def current_location
+      if !(params[:search].empty?)
+        params[:search] && params[:search][:value]
+      elsif geocode_request.new(request).current_location
+        geocode_request.new(request).current_location
+      else
+        "Acton, MA"
+      end
+    end
+    
+    def search_string
+      params[:search] && params[:search][:value]
+    end
+      
 end

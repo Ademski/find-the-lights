@@ -4,7 +4,24 @@
   <p><%= link_to 'Submit new display', new_light_display_path, :class => "btn btn-primary btn-lg" %></p>
 </div>
 
-<div id="displays" class="transitions-enabled">
+
+	<%= form_for :search, method: :get, url: root_path do |form| %>
+		<div class="form-horizontal">
+			<fieldset>
+			<div class-"form-group">
+				<div class="col-sm-10">
+				  <%= form.text_field :value, placeholder: @current_location, :class => "form-control" %>
+				</div>
+				  <%= form.submit 'Search', :class => "btn btn-small btn-success pull-right col-sm-2" %>
+			</div>
+		</fieldset>
+		</div>
+	<% end %>
+	
+	<% logger.info "Current location:#{@current_location_by_ip}" %>
+<% 
+=begin %>
+	<div id="displays" class="transitions-enabled">
     <% @light_displays.each do |light_display| %>
 				<div class="display panel panel-primary">
 				  <div class="panel-heading">
@@ -21,4 +38,20 @@
 						</div>			
 				</div>
     <% end %>
-</div>
+  </div>
+<% 
+=end %>
+
+<% content_for :javascript do %>
+	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<%= javascript_tag do %>
+    $(function() {
+      if (_.isEmpty($('#search_value').attr('placeholder'))) {
+        var currentLocation = new FindTheLights.CurrentLocation();
+        currentLocation.getLocation(function(location) {
+          $('#search_value').attr('placeholder', location);
+        })
+      }
+    });
+  <% end %>
+<% end %>

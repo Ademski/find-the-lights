@@ -17,6 +17,8 @@ gem 'aws-sdk'
 gem "paperclip", "~> 4.2"
 gem 'masonry-rails', '~> 0.2.4'
 gem 'pg'
+gem 'geocoder'
+gem 'underscore-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
