@@ -65,7 +65,7 @@ class LightDisplaysController < ApplicationController
     end
 
     def light_display_params
-      params.require(:light_display).permit(:name, :description)
+      params.require(:light_display).permit(:name, :description, :address)
     end
     
     def store_last_url

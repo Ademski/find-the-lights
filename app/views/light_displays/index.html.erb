@@ -18,9 +18,6 @@
 		</div>
 	<% end %>
 	
-	<% logger.info "Current location:#{@current_location_by_ip}" %>
-<% 
-=begin %>
 	<div id="displays" class="transitions-enabled">
     <% @light_displays.each do |light_display| %>
 				<div class="display panel panel-primary">
@@ -39,8 +36,6 @@
 				</div>
     <% end %>
   </div>
-<% 
-=end %>
 
 <% content_for :javascript do %>
 	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
